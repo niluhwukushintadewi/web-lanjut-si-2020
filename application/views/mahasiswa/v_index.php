@@ -18,9 +18,10 @@
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
         <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+       
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Tambah Data</a>
+        <a class="nav-link" href="<?= site_url('mahasiswa/tambah')?>"tabindex="-1">Tambah Data</a>
       </li>
     </ul>
     <span class="navbar-text">
@@ -41,29 +42,36 @@
   <thead>
     <tr>
       <th scope="col">Nomor</th>
-      <th scope="col">NAma</th>
+      <th scope="col">Nama</th>
       <th scope="col">Nim</th>
       <th scope="col">Alamat</th>
       <th scope="col">Aksi</th>
     </tr>
   </thead>
   <tbody>
+
+    <?php $no = 1; ?>
+    <?php foreach ($tbl_mahasiswa as $key) {?>
+      
     <tr>
-      <th scope="row">1</th>
-      <td>pahrul</td>
-      <td>20020123992</td>
-      <td>Mataram</td>
-      <td><button type="button" class="btn btn-warning">Edit</button> 
-     <button type="button" class="btn btn-danger">Delete</button> </td>
+      <td class="text-center"><?=$no++?></td>
+      <td><?=$key->nim?></td>
+      <td><?=$key->nama?></td>
+      <td><?=$key->alamat?></td>
+      <td class="text-center">
+
+      
+      <a href="<?=site_url('mahasiswa/hapus/' . $key->nim)?>"
+         onclick="return confirm('Yakin ?')" 
+        class="btn btn-danger btn-sm">Delete</a>
+
+         <a href="<?=site_url('mahasiswa/Edit/' . $key->nim)?>"
+        class="btn btn-info btn-sm">Edit</a>
+      
+
+      </td>
     </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Irfan</td>
-      <td>200020123929</td>
-      <td>Mataram Lagi</td>
-       <td><button type="button" class="btn btn-warning">Edit</button> 
-     <button type="button" class="btn btn-danger">Delete</button> </td>
-    </tr>
+  <?php } ?>
    
   </tbody>
 </table>
