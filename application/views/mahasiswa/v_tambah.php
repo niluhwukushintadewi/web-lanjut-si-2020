@@ -1,32 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-		<link rel="stylesheet" 
-	      href="<?= base_url('assets/bootstrap/css/bootstrap.min.css');?>">
-</head>
-
-<body>
-		<div class="container">
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Tugas</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarText">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="<?= site_url('mahasiswa/index')?>">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Tambah Data</a>
-      </li>
-    </ul>
-    <span class="navbar-text">
-      Ni Luh Wuku Shinta Dewi
-    </span>
-  </div>
-</nav>
 
 <div class="alert alert-info" role="alert">
   <center><b>Tambah Data Mahasiswa</b></center>

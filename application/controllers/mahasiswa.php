@@ -11,7 +11,10 @@ class mahasiswa extends CI_Controller
 		parent::__construct();
 
 		$this->load->model('m_mahasiswa');
-
+		
+		if(!$this->session->userdata('nama_pengguna')){
+			redirect('login/index');
+		}
 	}
 
 	public function index($url_nim ='',$url_jur ='')
@@ -24,6 +27,7 @@ class mahasiswa extends CI_Controller
 		//$data['tbl_mahasiswa'] = $this->db->get('mahasiswa')->result();
 		$data['tbl_mahasiswa'] = $this->m_mahasiswa->getAll();
 
+		$this->load->view('template/header');
 		 $this->load->view('mahasiswa/v_index', $data);
 	}
 	
@@ -34,6 +38,7 @@ class mahasiswa extends CI_Controller
 	}
 public function tambah()
 	{
+		$this->load->view('template/header');
 		 $this->load->view('mahasiswa/v_tambah');
 	
 	}
@@ -59,6 +64,7 @@ public function tambah()
 	public function edit($input_nim)
 	{
 		$data['data_nim'] = $this->m_mahasiswa->getWhere($input_nim);
+			$this->load->view('template/header');
 		return $this->load->view('mahasiswa/v_edit', $data);
 	}
 	public function update()
@@ -74,7 +80,7 @@ public function tambah()
 	    	);
 
 		$where = array(
-			'NIM'=> $NIM
+			'nim'=> $nim
 		);
 
 		$this->m_mahasiswa->update($where,$data, 'mahasiswa');
